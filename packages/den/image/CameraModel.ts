@@ -7,10 +7,10 @@
 
 import { CameraInfo } from "./CameraInfo";
 import { CylinderCameraModel } from "./CylinderCameraModel";
-import { PinholeCameraModel } from "./PinholeCameraModel";
 import { DeformedCylinderCameraModel } from "./DeformedCylinderCameraModel";
+import { PinholeCameraModel } from "./PinholeCameraModel";
 
-export type CameraModel = PinholeCameraModel | CylinderCameraModel | DeformedCylinderCameraModel;
+export type CameraModel = CylinderCameraModel | DeformedCylinderCameraModel | PinholeCameraModel;
 
 export function createCameraModel(cameraInfo: CameraInfo): CameraModel {
   if (

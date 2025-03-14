@@ -10,7 +10,6 @@ import * as THREE from "three";
 import { Writable } from "ts-essentials";
 
 import { filterMap } from "@lichtblick/den/collection";
-
 import { CameraModel, createCameraModel } from "@lichtblick/den/image";
 import Logger from "@lichtblick/log";
 import { toNanoSec } from "@lichtblick/rostime";
