@@ -13,16 +13,11 @@ import { PinholeCameraModel } from "./PinholeCameraModel";
 export type CameraModel = CylinderCameraModel | DeformedCylinderCameraModel | PinholeCameraModel;
 
 export function createCameraModel(cameraInfo: CameraInfo): CameraModel {
-  if (
-    cameraInfo.distortion_model === "plumb_bob" ||
-    cameraInfo.distortion_model === "rational_polynomial"
-  ) {
-    return new PinholeCameraModel(cameraInfo);
-  } else if (cameraInfo.distortion_model === "cylindrical") {
+  if (cameraInfo.distortion_model === "cylindrical") {
     return new CylinderCameraModel(cameraInfo);
   } else if (cameraInfo.distortion_model === "deformed_cylinder") {
     return new DeformedCylinderCameraModel(cameraInfo);
   } else {
-    throw new Error(`Unsupported camera model: ${cameraInfo.distortion_model}`);
+    return new PinholeCameraModel(cameraInfo);
   }
 }
